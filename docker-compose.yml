@@ -6,8 +6,8 @@ services:
       target: development
       args:
         # UID and GID must be set as environment variables on the host machine
-        USER_ID: $UID
-        GROUP_ID: $GID
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
     volumes:
       - .:/var/www/html
     ports:
