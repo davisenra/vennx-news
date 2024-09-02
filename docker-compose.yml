@@ -1,6 +1,6 @@
 services:
-  php:
-    container_name: php
+  app:
+    container_name: app
     build:
       context: .
       target: development
@@ -11,8 +11,8 @@ services:
     volumes:
       - .:/var/www/html
     ports:
-      - 8080:8080
-      - 5173:5173
+      - "8080:8080"
+      - ${VITE_PORT:-5173}:${VITE_PORT:-5173}
     networks:
       - main
     depends_on:
@@ -21,9 +21,11 @@ services:
     container_name: mysql
     image: mysql:9
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - main
+    volumes:
+      - 'mysql:/var/lib/mysql'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: vennx-news
@@ -31,3 +33,7 @@ services:
       MYSQL_PASSWORD: vennx-news
 networks:
   main:
+    driver: bridge
+volumes:
+    mysql:
+        driver: local
