@@ -1,0 +1,28 @@
+services:
+  php:
+    container_name: php
+    build:
+      context: .
+      target: development
+      args:
+        # UID and GID must be set as environment variables on the host machine
+        USER_ID: $UID
+        GROUP_ID: $GID
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8080:8080
+      - 5173:5173
+    networks:
+      - main
+    depends_on:
+      - mysql
+  mysql:
+    container_name: mysql
+    image: mysql:9
+    ports:
+      - 3306:3306
+    networks:
+      - main
+networks:
+  main:
