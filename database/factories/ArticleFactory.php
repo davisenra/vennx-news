@@ -20,6 +20,10 @@ class ArticleFactory extends Factory
             'image' => $this->faker->imageUrl(),
             'title' => $this->faker->sentence(),
             'content' => $this->faker->paragraph(5),
+            'published_at' => $this->faker->dateTimeBetween(
+                startDate: '-1 year',
+                endDate: 'now'
+            ),
         ];
     }
 }

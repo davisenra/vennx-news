@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- */
 class Article extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
 
     protected $fillable = [
         'title',
@@ -18,11 +18,15 @@ class Article extends Model
         'image',
     ];
 
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     /**
      * @return BelongsTo<User, $this>
      */
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

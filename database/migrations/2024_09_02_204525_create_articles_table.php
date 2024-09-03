@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('title', 120);
             $table->text('content');
-            $table->timestamps();
+            $table->dateTime('published_at');
         });
     }
 
