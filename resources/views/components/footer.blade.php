@@ -1,5 +1,5 @@
-<footer class="px-6 py-12 bg-neutral-100">
-    <div class="mx-auto w-full max-w-screen-xl">
+<footer class="mt-12 px-3 xl:px-0 py-12 bg-neutral-100">
+    <div class="mx-auto w-full max-w-6xl">
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Vennx News</h2>
             <ul class="text-gray-500 font-medium">
