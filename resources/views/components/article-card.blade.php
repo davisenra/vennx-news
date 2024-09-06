@@ -1,4 +1,4 @@
-<div class="font-serif max-w-xs space-y-2 p-2">
+<div class="font-serif space-y-2 p-2 break-inside">
     <a href="{{ route('article.show', ['id' => $article->id]) }}">
         <img src="{{ $article->image }}" alt="Article picture">
     </a>
