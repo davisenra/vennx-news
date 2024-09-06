@@ -46,7 +46,8 @@ class ArticlesTableTest extends TestCase
             ->create();
 
         Livewire::test(ArticlesTable::class)
-            ->call('deleteArticle', $article->id);
+            ->call('deleteArticle', $article->id)
+            ->assertStatus(403);
 
         $this->assertDatabaseHas('articles', [
             'id' => $article->id,
