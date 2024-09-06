@@ -64,4 +64,4 @@ Instruções:
 - O seeder irá gerar um usuário de testes com email `test@example.com` e senha `password`, o mesmo pode ser usado para obter um token JWT e testar manualmente os endpoints.
 
 ## Suíte de testes
-1. `docker compose exec app php artisan tests`
+1. `docker compose exec app php artisan test`
