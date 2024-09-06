@@ -39,7 +39,9 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Prepare the application
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+        run: |
+          php -r "file_exists('.env') || copy('.env.example', '.env');" && \
+          php artisan key:generate
 
       - name: Run test suite
         run: vendor/bin/phpunit
